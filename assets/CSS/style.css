@@ -1,0 +1,772 @@
+/* untuk merubah font pada tampilan web */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(230, 62%, 56%);
+    --title-color: hsl(230, 70%, 16%);
+    --text-color: hsl(230, 16%, 45%);
+    --border-color: hsl(230, 50%, 90%);
+    --white-color: hsl(0, 0%, 100%);
+    --body-color: hsl(230, 100%, 96%);
+    --container-color: hsl(230, 100%, 97%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Montserrat", sans-serif;
+    --second-font: "Montagu Slab", serif;
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+    :root {
+        --biggest-font-size: 3.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+* {
+    /* agar tidak ada space kosong */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+    /* agar tidak ada garis bawah pada link */
+    text-decoration: none;
+}
+
+/* navbar */
+nav {
+    /* untuk mengubah warna background */
+    background-color: rgb(255, 255, 255);
+    /* agar navbar tetap berada diatas */
+    position: fixed;
+    width: 100%;
+    /* agar berada di layer paling atas */
+    z-index: 999;
+    /* agar tampilan row */
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    /* supaya teksnya bold */
+    font-weight: bold;
+    /* supaya item di center tengah */
+    align-items: center;
+
+}
+
+.colornav {
+    color: rgb(195, 0, 255);
+    /* agar navbar tidak ada garis bawah */
+    text-decoration: none;
+}
+
+nav .navbar {
+    /* agar tampilan satu baris */
+    display: flex;
+    /* memberikan jarak antar element */
+    gap: 1rem;
+
+}
+
+a:hover {
+    /* supaya saat kursor mendekati lelement akan berubah warna */
+    color: rgb(53, 50, 208);
+}
+
+.img-icon {
+    /* mengatur tinggi gambar */
+    height: 40px;
+    /* mengatur lebar gambar */
+    width: 70px;
+}
+
+/* navbar end */
+
+/* home*/
+section {
+    /* memberikan jarak dalam */
+    padding: 70px 17%;
+
+}
+
+.home {
+    /* mengatur lebar penuh selayar */
+    width: 100%;
+    background-color: rgb(47, 34, 189);
+    /* mengatur tinggi penuh selayar */
+    /* Mengatur tinggi pada elemen secara minimum */
+    min-height: 100vh;
+    /*membagi kolom pada website menjadi beberapa bagian sesuai yang diinginkan */
+    display: grid;
+    /* jarak antar element */
+    grid-gap: 1.5rem;
+    /* digunakan untuk mengatur tata letak kolom dalam sebuah grid CSS.
+       repeat untuk mengulang pola lebar kolom
+    */
+    grid-template-columns: repeat(2, 1fr);
+    /* Mengatur item agar berada di tengah secara vertikal */
+    align-items: center;
+
+}
+
+
+.img-home {
+    /* Mengatur lebar pada elemen secara maksimum */
+    max-width: 100%;
+    width: 100px;
+    height: auto;
+}
+
+.teks-home h1 {
+    /* ukuran font */
+    font-size: 2rem;
+    /* warna teks */
+    color: white;
+}
+
+.teks-home h2 {
+    font-size: 1.25rem;
+    color: rgb(0, 195, 255);
+    /* memberikan jarah jarak semua sisi bagian luar */
+    margin: 1rem 0 2rem;
+}
+
+.btn {
+    background-color: white;
+    padding: 1rem 1rem;
+    /* memberikan garis lengkung pada element/tag  */
+    border-radius: 40px;
+    /* Jika layar tidak muat maka otomatis membuat baris baru  */
+    display: inline-block;
+    border-radius: 0.5rem;
+    /* untuk mengubah tampilan kursor saat pengguna mengarahkan kursor mouse ke elemen HTML tertentu */
+    cursor: pointer;
+    /* supaya teks tebal */
+    font-weight: bold;
+    /* mengatur posisi element horizontal */
+    justify-content: space-between;
+}
+
+.btn:hover {
+    background-color: rgb(0, 195, 255);
+    color: white;
+    /* ketika kursor mendekati element, maka element akan membesar */
+    transform: scale(1.2);
+}
+
+/* ketika cursor di click di element */
+.btn:active {
+    background-color: rgb(65, 121, 198);
+}
+
+/* home end */
+
+/*  about */
+
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 1.5rem;
+    align-items: center;
+}
+
+.img-about {
+    /* Mengatur lebar pada elemen secara maksimum */
+    max-width: 100%;
+    width: 480px;
+    height: auto;
+}
+
+.teks-about h1 {
+    color: rgb(47, 34, 189);
+    font-size: 30px;
+}
+
+.teks-about h2 {
+    color: rgb(87, 76, 200);
+    font-size: 18px;
+}
+
+.teks-about p {
+    color: black;
+    font-size: 15px;
+    /* Mengatur posisi dari text  */
+    text-align: justify;
+}
+
+/*  about end */
+
+/*  mapel */
+.heading-mapel {
+    /* mengatur posisi dari text */
+    text-align: center;
+}
+
+.heading-mapel span {
+    color: rgb(5, 5, 5);
+    /* mengatur ketebalan font */
+    font-weight: 600;
+}
+
+.heading-mapel h2 {
+    font-size: 1.25rem;
+    color: rgb(47, 34, 189);
+}
+
+.mapel-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    grid-gap: 1 em;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.img-mapel {
+    width: 10rem;
+    height: 10rem;
+}
+
+.box-img {
+    height: 100%;
+    width: 100%;
+}
+
+.box {
+    /* Elemen diposisikan terhadap posisi normal*/
+    position: relative;
+    /* Mengatur jarak antar elemen bagian atas */
+    margin-top: 4rem;
+    height: auto;
+    width: 20rem;
+    display: flex;
+    /* digunakan untuk mengatur arah tata letak (layout) elemen-elemen dalam suatu container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 213, 255);
+    padding: 20px;
+    border-radius: 0.5rem;
+    /* mengatur efek transisi (transition) pada perubahan properti CSS dalam elemen */
+    transition: 0.3s all ease-in-out;
+}
+
+/* membuat style untuk list link */
+
+/* memberikan style pada element */
+.box a {
+    text-decoration: none;
+    /* Mengatur posisi dari text  */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ketika cursor diarahkan ke element */
+.box:hover {
+    transform: translateY(-5px);
+    background-color: rgb(141, 134, 222);
+    color: white;
+
+}
+
+/* ketika cursor di click di element */
+.item:active {
+    background-color: rgb(190, 81, 190);
+}
+
+/* mapel end */
+
+
+/* footer start */
+.contact {
+    padding: 20px 17%;
+    width: 100%;
+    background-color: rgb(47, 34, 189);
+    font-size: 15px;
+}
+
+.main {
+    display: flex;
+    /* digunakan dalam konteks tata letak fleksibel (flex layout) untuk mengontrol bagaimana elemen-elemen dalam container flex akan dibungkus (wrap) jika 
+       mereka tidak muat dalam satu baris atau kolom tunggal. 
+     */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.col {
+    width: 25%;
+}
+
+.col h4 {
+    font-size: 15px;
+    color: white;
+    /* Mengatur jarak antar elemen bagian bawah */
+    margin-bottom: 25px;
+    /* memungkinkan posisi elemen berhubungan dengan wadah div nya */
+    position: relative;
+}
+
+.col h4::before {
+    content: "";
+    /* menaruh element dimanapun. Unsur diposisikan relatif terhadap posisi pertama*/
+    position: absolute;
+    height: 2px;
+    width: 50px;
+    left: 0;
+    bottom: -8px;
+    background-color: rgb(255, 255, 255);
+}
+
+/* Pemilih ini tidak memilih elemen setelah elemen turunan terakhir */
+.col ul li:not(last-child) {
+    margin-bottom: 15px;
+}
+
+.col ul li a {
+    color: white;
+    font-size: 1rem;
+    /* Berfungsi untuk memberi blok baru atau baris baru seperti kode */
+    display: block;
+    text-transform: capitalize;
+    transition: .4s;
+}
+
+.col ul li a:hover {
+    color: rgb(255, 255, 255);
+    transform: translateX(-12px);
+}
+
+.col .social {
+    width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col .social-1 {
+    font-size: 13px;
+    color: white;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col .social a {
+    height: 40px;
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(47, 34, 189);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.col .social a:hover {
+    transform: scale(1.2);
+    color: rgb(255, 255, 255);
+    background-color: blueviolet;
+}
+
+p {
+    /* Mengatur posisi dari text  */
+    text-align: center;
+    color: white;
+}
+
+/* footer end */
+
+
+/* bindo */
+.text-home-indo {
+    color: white;
+    text-align: center;
+}
+
+.home-mapel {
+    width: 100%;
+    background-color: rgb(47, 34, 189);
+    /* Mengatur tinggi pada elemen secara minimum */
+    min-height: 30rem;
+    display: grid;
+    align-items: center;
+
+}
+
+/* bindo finish */
+
+/* biografi */
+
+.biografi-teks {
+    color: white;
+    text-align: center;
+}
+
+.biografi-teks a {
+    color: rgb(128, 170, 232);
+}
+
+.biografi-teks a:hover {
+    color: rgb(255, 255, 255);
+    transform: scale(2.2);
+}
+
+.isi-mapel img {
+    height: auto;
+    width: 60rem;
+    border-radius: 2rem;
+}
+
+.isi-mapel .pengertian-biografi p {
+    text-align: justify;
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    border-radius: 2rem;
+    padding: 20px;
+}
+
+.isi-mapel h2 {
+    color: rgb(47, 34, 189);
+    text-align: center;
+}
+
+.isi-mapel .struktur-biografi h2 {
+    color: white;
+}
+
+.isi-mapel .struktur-biografi {
+    background-color: rgb(47, 34, 189);
+    padding: 40px 17%;
+}
+
+.struktur-biografi {
+    border-radius: 2rem;
+    align-items: center;
+}
+
+.box-struktur {
+    background-color: white;
+    border-radius: 3rem;
+    height: auto;
+    width: auto;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.struktur-biografi h3 {
+    color: rgb(47, 34, 189);
+    text-align: center;
+}
+
+.struktur-biografi p {
+    color: black;
+    text-align: justify;
+}
+
+.isi-mapel .referensi h3 {
+    color: rgb(47, 34, 189);
+    text-align: center;
+}
+
+/* biografi end */
+
+/* filter */
+.container-s {
+    justify-content: center;
+}
+
+/*=============== NAVIGASI DAN PENCARIAN ===============*/
+
+/* Gaya untuk tindakan navigasi */
+.nav__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+/* Gaya untuk ikon tindakan navigasi */
+.nav__actions i {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: color .4s;
+}
+
+/* Mengganti warna saat hover untuk ikon tindakan navigasi */
+.nav__actions i:hover {
+    color: var(--first-color);
+}
+
+/* Gaya untuk overlay pencarian */
+.search {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-fixed);
+    background-color: rgba(47, 34, 189, 0.629);
+    backdrop-filter: blur(16px);
+    padding: 8rem 1.5rem;
+    transition: top .4s;
+}
+
+/* Gaya untuk formulir pencarian di dalam overlay */
+.search__form {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    background-color: rgba(255, 255, 255, 0.638);
+    border: 2px solid rgb(47, 34, 189);
+    padding-inline: 1rem;
+}
+
+/* Gaya untuk ikon pencarian */
+.search__icon {
+    font-size: 1.25rem;
+    color: var(--title-color);
+}
+
+/* Gaya untuk input pencarian */
+.search__input {
+    width: 100%;
+    padding-block: 1rem;
+    background-color: rgba(255, 255, 255, 0.638);
+    color: var(--text-color);
+}
+
+/* Gaya untuk tombol tutup di dalam overlay pencarian */
+.search__close {
+    position: absolute;
+    top: 6rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+/* Menampilkan overlay pencarian */
+.show-search {
+    top: 0;
+}
+
+
+
+/*=============== BAGIAN buku ===============*/
+.featured_description{
+    color: white;
+}
+.featured-section{
+    background-color: rgba(47, 34, 189, 0.785);
+}
+/* Gaya untuk judul bagian di bagian buku */
+.section__title {
+    color: rgb(47, 34, 189);
+}
+
+/* Gaya untuk kontainer buku */
+.featured__card {
+    position: relative;
+    text-align: center;
+    background-color: var(--container-color);
+    padding: 2rem;
+    overflow: hidden;
+    border: 2px var(--border-color);
+    transition: border .4s, background-color .4s;
+}
+
+/* Gaya untuk gambar di dalam buku */
+.featured__img {
+    width: 150px;
+    margin: 0 auto .75rem;
+}
+
+/* Gaya untuk judul di dalam buku */
+.featured__title {
+    font-size: var(--h2-font-size);
+    margin-bottom: .5rem;
+}
+
+/* Gaya untuk harga di dalam buku */
+.featured__prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .75rem;
+    margin-bottom: 1.35rem;
+}
+
+/* Gaya untuk teks diskon di dalam buku */
+.featured__discount {
+    color: var(--small-font-size);
+}
+
+/* Gaya untuk harga asli di dalam buku */
+.featured__price {
+    font-size: var(--smaller-font-size);
+    text-decoration: line-through;
+}
+
+/* Gaya untuk interaksi buku dan tombol */
+.featured__card,
+.button {
+    cursor: pointer;
+}
+
+/* Gaya untuk kontainer tindakan di dalam bukun */
+.featured__actions {
+    display: inline-flex;
+    flex-direction: column;
+    row-gap: .75rem;
+    position: absolute;
+    top: 2rem;
+    right: -1.5rem;
+    transition: right .4s;
+}
+
+/* Gaya untuk tombol di dalam kontainer tindakan */
+.featured__actions button {
+    background: none;
+    font-size: 1.25rem;
+    color: rgb(47, 34, 189);
+    cursor: pointer;
+}
+
+/* Gaya untuk efek hover pada kartu unggulan dan kontainer tindakan */
+.featured__card:hover,
+.featured__actions {
+    transform: translateY(-5px);
+    background-color: rgb(141, 134, 222);
+    color: white;
+}
+
+/* Gaya untuk penampilan tombol swiper kustom */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    content: '';
+}
+
+/* Gaya untuk tombol navigasi swiper */
+.swiper-button-prev,
+.swiper-button-next {
+    width: initial;
+    height: initial;
+    background-color: rgb(164, 160, 218);
+    border: 2px solid var(--border-color);
+    padding: .5rem;
+    font-size: 1.5rem;
+    color: var(--first-color);
+    transition: border .4s background-color .4s;
+}
+
+/* Gaya untuk penampilan tombol utama */
+.button {
+    display: inline-block;
+    background-color: rgb(96, 86, 198);
+    border-radius: 1rem;
+    color: var(--white-color);
+    font-weight: var(--font-semi-bold);
+    padding: 1rem 1.5rem;
+    transition: box-shadow .4s;
+}
+
+
+/*=============== BAGIAN TESTIMONIAL ===============*/
+
+/* Gaya untuk kontainer kartu testimonial */
+.testimonial__card {
+    text-align: center;
+    background-color: var(--container-color);
+    padding: 2rem 3rem 2.5rem;
+    border: 2px solid var(--border-color);
+    transition: border .4s, background-color .4s;
+}
+
+/* Gaya untuk gambar di dalam kartu testimonial */
+.testimonial__img {
+    width: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+}
+
+/* Gaya untuk judul di dalam kartu testimonial */
+.testimonial__title {
+    font-size: var(--h2-font-size);
+    margin-bottom: .75rem;
+}
+
+/* Gaya untuk deskripsi di dalam kartu testimonial */
+.testimonial__description {
+    font-size: var(--small-font-size);
+    margin-bottom: 1.25rem;
+    color: rgb(96, 86, 198);
+}
+
+/* Gaya untuk bintang di dalam kartu testimonial */
+.testimonial__stars {
+    color: var(--first-color);
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup{
+    position: fixed;
+    right: 1rem;
+    bottom: -50rem;
+    background-color: var(--container-color);
+    box-shadow: 0 2px 8px hsla(0, 0%, 0% .1);
+    display: inline-flex;
+    padding: 6px;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    z-index: var(--z-tooltip);
+    transition: bottom .4s, transform .4s, bacground-color .4s;
+  }
+  
+  .scrollup:hover{
+    transform: translateY(-.5rem);
+  }
+  
+  /* Show Scroll Up */
+  .show-scroll{
+  
+    bottom: 6rem;
+  }
+  

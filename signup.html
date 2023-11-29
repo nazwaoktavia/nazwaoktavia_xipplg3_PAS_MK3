@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<div lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up- Vilearn</title>
+    <link rel="stylesheet" href="assets/CSS/stylelogin.css">
+    <script src="https://kit.fontawesome.com/c425e24a8.js" crossorigin="anonymous"></script>
+</head>
+<div>
+    <div class="container"></div>
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="text" placeholder="Name">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+
+                    <p>Lost password <a href="#">Click Here!</a></p>
+                </div>
+
+                <div class="btn-field">
+                    <button type="button" id="signupBtn" >Sign Up</button>
+                    <button type="button" id="signinBtn" class="disable">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>   
+
+<script>
+    // Mendapatkan elemen tombol sign up, tombol sign in, input nama, dan elemen judul
+let signupBtn = document.getElementById("signupBtn");
+let signinBtn = document.getElementById("signinBtn");
+let nameField = document.getElementById("nameField");
+let title = document.getElementById("title");
+
+// Event listener untuk tombol sign in
+signinBtn.onclick = function () {
+    // Mengatur ketinggian maksimum field nama menjadi 0 untuk menyembunyikannya
+    nameField.style.maxHeight = "0";
+    // Mengubah teks judul menjadi "Sign In"
+    title.innerHTML = "Sign In";
+    // Menambahkan kelas "disable" pada tombol sign up
+    signupBtn.classList.add("disable");
+    // Menghapus kelas "disable" dari tombol sign in
+    signinBtn.classList.remove("disable");
+    
+    // Menambahkan event listener tambahan untuk melakukan redirect saat tombol sign in diklik
+    document.getElementById('signinBtn').addEventListener('click', function () {
+        window.location.href = 'index.html';
+    });
+    
+    // Mengubah teks pesan login menjadi "Anda berhasil login"
+    document.getElementById('pesanLogin').innerText = 'Anda berhasil login';
+}
+
+// Event listener untuk tombol sign up
+signupBtn.onclick = function () {
+    // Mengatur ketinggian maksimum field nama menjadi 60px untuk menampilkannya
+    nameField.style.maxHeight = "60px";
+    // Mengubah teks judul menjadi "Sign Up"
+    title.innerHTML = "Sign Up";
+    // Menghapus kelas "disable" dari tombol sign up
+    signupBtn.classList.remove("disable");
+    // Menambahkan kelas "disable" pada tombol sign in
+    signinBtn.classList.add("disable");
+    
+    // Menambahkan event listener tambahan untuk melakukan redirect saat tombol sign up diklik
+    document.getElementById('signupBtn').addEventListener('click', function () {
+        window.location.href = 'index.html';
+    });
+}
+
+
+
+</script>
+</body>
+</html>
